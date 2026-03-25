@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9MAX 高转化落地页结构图</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f5;padding:24px;color:#1a1a1a}
+.canvas{display:flex;gap:24px;align-items:flex-start;max-width:960px;margin:0 auto}
+.phone-wrap{flex-shrink:0;width:220px}
+.phone-wrap-title{font-size:10px;font-weight:500;color:#888;text-align:center;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.phone{border:2px solid #333;border-radius:28px;overflow:hidden;background:#fff;position:relative}
+.phone-notch{height:20px;background:#1a1a1a;display:flex;align-items:center;justify-content:center}
+.phone-notch-dot{width:48px;height:5px;background:#333;border-radius:3px}
+.phone-bottom{height:14px;background:#1a1a1a;display:flex;align-items:center;justify-content:center}
+.phone-bar{width:60px;height:3px;background:#444;border-radius:2px}
+.screen{background:#f5f5f5}
+.zone{width:100%;position:relative}
+.zone-label{font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:3px;position:absolute;top:4px;right:4px;z-index:2}
+.lbl-ab{background:#FAC775;color:#633806}
+.lbl-shared{background:#9FE1CB;color:#085041}
+.lbl-fixed{background:#D3D1C7;color:#444441}
+.s-nav{background:#1a1a1a;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;position:relative}
+.s-nav .logo{font-size:11px;font-weight:500;color:#fff;letter-spacing:.04em}
+.s-nav .partner-logos{display:flex;gap:3px}
+.s-nav .plogo{width:14px;height:8px;background:#333;border-radius:1px}
+.s-nav .cs-btn{font-size:9px;background:#25D366;color:#fff;padding:2px 6px;border-radius:3px}
+.s-hero{position:relative;background:#2d4a1e;padding:12px 10px 10px;display:flex;flex-direction:column;align-items:center;gap:0}
+.hero-img-ab{width:140px;height:80px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:500;margin-bottom:6px}
+.hero-a{background:#3a5c26;color:#a8d87a;border:1px dashed #639922;flex-direction:column;gap:3px}
+.hero-b{background:#4a2d1e;color:#f0997b;border:1px dashed #D85A30;flex-direction:column;gap:3px}
+.hero-animals{display:flex;gap:6px}
+.animal{width:32px;height:32px;background:#4a6e2e;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px}
+.hero-person{width:56px;height:56px;background:#6b3a24;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px}
+.s-hook{position:relative;background:#1e3510;padding:8px 10px}
+.hook-ab-a{border-left:2px solid #639922}
+.hook-ab-b{border-left:2px solid #D85A30}
+.hook-title{font-size:13px;font-weight:500;color:#fff;line-height:1.2}
+.hook-title span{color:#FFD700}
+.hook-sub{font-size:9px;color:#8db86a;margin-top:2px}
+.s-cta{background:#1a1a1a;padding:8px 10px;position:relative}
+.cta-btn{width:100%;padding:9px 0;background:#fff;border-radius:8px;text-align:center;font-size:12px;font-weight:500;color:#1a1a1a;position:relative}
+.cta-badge{position:absolute;top:-6px;right:8px;background:#E24B4A;color:#fff;font-size:8px;padding:1px 6px;border-radius:10px}
+.cta-sub{font-size:8px;color:#888;text-align:center;margin-top:4px}
+.s-trust{background:#f8f8f8;border-top:1px solid #eee;border-bottom:1px solid #eee;padding:7px 10px;display:flex;align-items:center;justify-content:space-between;position:relative}
+.trust-rating{display:flex;align-items:center;gap:3px}
+.trust-stars{display:flex;gap:1px}
+.star{width:8px;height:8px;background:#EF9F27;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.trust-num{font-size:9px;color:#444;font-weight:500}
+.trust-cert{font-size:8px;color:#3B6D11;background:#EAF3DE;padding:2px 5px;border-radius:3px}
+.trust-users{font-size:8px;color:#888}
+.s-payment{background:#fff;padding:7px 10px;position:relative}
+.pay-title{font-size:8px;color:#888;margin-bottom:5px;font-weight:500;text-transform:uppercase;letter-spacing:.04em}
+.pay-logos{display:flex;gap:5px;align-items:center}
+.pay-logo{height:18px;border-radius:3px;border:1px solid #e5e5e5;padding:2px 6px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:500}
+.pl-oxxo{background:#e8151b;color:#fff;border-color:#e8151b}
+.pl-clabe{background:#fff;color:#333;border-color:#ccc}
+.pl-pc{background:#0066cc;color:#fff;border-color:#0066cc}
+.pl-bank{background:#fff;color:#666;border-color:#ddd}
+.pay-promise{font-size:8px;color:#3B6D11;margin-top:5px;display:flex;align-items:center;gap:3px}
+.check{width:8px;height:8px;background:#3B6D11;border-radius:50%;display:inline-flex;align-items:center;justify-content:center}
+.check::after{content:'';width:4px;height:2px;border-bottom:1.5px solid #fff;border-left:1.5px solid #fff;transform:rotate(-45deg) translate(0px,-1px);display:block}
+.s-benefits{background:#1e3510;padding:8px 10px;position:relative}
+.benefit-item{display:flex;align-items:flex-start;gap:5px;padding:3px 0;border-bottom:1px solid #2a4a1a}
+.benefit-item:last-child{border-bottom:none}
+.benefit-num{font-size:8px;color:#8db86a;min-width:12px;margin-top:1px}
+.benefit-text{font-size:9px;color:#d4e8c0;line-height:1.4}
+.benefit-text span{color:#FFD700;font-weight:500}
+.s-games{background:#fff;padding:8px 10px;position:relative}
+.game-cat-title{font-size:9px;font-weight:500;color:#444;margin-bottom:5px;padding-bottom:3px;border-bottom:1px solid #eee}
+.game-row{display:flex;gap:4px;margin-bottom:7px}
+.game-thumb{width:36px;height:28px;border-radius:4px;background:#e8e8e8;position:relative;overflow:hidden}
+.game-thumb:nth-child(1){background:#c44b2a}
+.game-thumb:nth-child(2){background:#2a5c9e}
+.game-thumb:nth-child(3){background:#2a7a3e}
+.game-thumb:nth-child(4){background:#8b3ea0}
+.game-thumb:nth-child(5){background:#c4892a}
+.game-hot{position:absolute;top:1px;left:1px;background:#E24B4A;color:#fff;font-size:6px;padding:0 2px;border-radius:1px}
+.s-cs{background:#1a1a1a;padding:7px 10px;position:relative;display:flex;align-items:center;justify-content:space-between}
+.cs-text{font-size:9px;color:#aaa;line-height:1.4}
+.cs-text strong{color:#fff;display:block;font-size:10px;margin-bottom:1px}
+.cs-wa{background:#25D366;color:#fff;font-size:9px;padding:5px 8px;border-radius:5px}
+.s-sticky{background:#111;padding:6px 10px;display:flex;align-items:center;gap:8px;border-top:1px solid #333;position:relative}
+.sticky-logo{font-size:9px;font-weight:500;color:#fff}
+.sticky-claim{font-size:8px;color:#8db86a;flex:1}
+.sticky-cta{background:#fff;color:#111;font-size:9px;font-weight:500;padding:5px 10px;border-radius:5px;white-space:nowrap}
+.ver-toggle{display:flex;gap:6px;margin-top:10px;justify-content:center;flex-wrap:wrap}
+.ver-btn{font-size:11px;padding:4px 10px;border-radius:5px;border:1px solid #ccc;background:#f0f0f0;color:#555;cursor:pointer}
+.ver-btn.active{background:#fff;color:#1a1a1a;border-color:#999;font-weight:500}
+.annotations{flex:1;min-width:0}
+.ann-title{font-size:11px;font-weight:500;color:#888;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#666}
+.leg-dot{width:10px;height:10px;border-radius:2px}
+.leg-ab{background:#FAC775}
+.leg-sh{background:#9FE1CB}
+.leg-fx{background:#D3D1C7}
+.ann{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start}
+.ann-num{font-size:13px;font-weight:500;min-width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.ann-num-ab{background:#FAEEDA;color:#633806}
+.ann-num-sh{background:#E1F5EE;color:#085041}
+.ann-num-fx{background:#F1EFE8;color:#444441}
+.ann-body{flex:1}
+.ann-label{font-size:13px;font-weight:500;color:#1a1a1a;margin-bottom:2px}
+.ann-desc{font-size:11px;color:#666;line-height:1.55}
+.tag-pill{display:inline-block;font-size:10px;padding:1px 7px;border-radius:10px;margin-left:4px;font-weight:500;vertical-align:middle}
+.tp-ab{background:#FAC775;color:#633806}
+.tp-sh{background:#9FE1CB;color:#085041}
+.tp-fx{background:#D3D1C7;color:#444441}
+.divider-line{border:none;border-top:1px solid #e5e5e5;margin:14px 0}
+.copy-block{background:#f8f8f8;border-radius:8px;border:1px solid #e5e5e5;padding:10px 12px;margin-bottom:8px}
+.copy-block-title{font-size:11px;font-weight:500;color:#888;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+.copy-option{font-size:12px;color:#1a1a1a;padding:5px 0;border-bottom:1px solid #eee;line-height:1.4}
+.copy-option:last-child{border-bottom:none}
+.copy-option em{font-style:normal;font-weight:500}
+.copy-sub{font-size:11px;color:#888;margin-top:1px}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="phone-wrap">
+    <div class="phone-wrap-title">落地页结构图</div>
+    <div class="phone">
+      <div class="phone-notch"><div class="phone-notch-dot"></div></div>
+      <div class="screen">
+        <div class="zone s-nav">
+          <span class="zone-label lbl-fixed">固定</span>
+          <span class="logo">9MAX</span>
+          <div class="partner-logos">
+            <div class="plogo"></div><div class="plogo"></div><div class="plogo"></div><div class="plogo"></div><div class="plogo"></div>
+          </div>
+          <span class="cs-btn">客服</span>
+        </div>
+        <div class="zone s-hero">
+          <span class="zone-label lbl-ab">A/B</span>
+          <div class="hero-img-ab hero-a" id="hero-a-vis">
+            <div style="font-size:9px;color:#8db86a;font-weight:500">版本 A — 游戏角色</div>
+            <div class="hero-animals">
+              <div class="animal">🐂</div>
+              <div class="animal">🐍</div>
+              <div class="animal">🐯</div>
+            </div>
+          </div>
+          <div class="hero-img-ab hero-b" id="hero-b-vis" style="display:none">
+            <div style="font-size:9px;color:#f0997b;font-weight:500">版本 B — 真人模特</div>
+            <div class="hero-person">👩</div>
+          </div>
+        </div>
+        <div class="zone s-hook hook-ab-a" id="hook-zone">
+          <span class="zone-label lbl-ab">A/B</span>
+          <div class="hook-title" id="hook-text">注册即送 <span>$80</span> 彩金</div>
+          <div class="hook-sub" id="hook-sub-text">无需充值 · 立即领取</div>
+        </div>
+        <div class="zone s-cta">
+          <span class="zone-label lbl-fixed">固定</span>
+          <div class="cta-btn">
+            <span class="cta-badge">限时</span>
+            立即领取 →
+          </div>
+          <div class="cta-sub">已有 128,000+ 玩家加入</div>
+        </div>
+        <div class="zone s-trust">
+          <span class="zone-label lbl-shared">共用</span>
+          <div class="trust-rating">
+            <div class="trust-stars">
+              <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+            </div>
+            <span class="trust-num">4.9</span>
+          </div>
+          <span class="trust-cert">持牌认证</span>
+          <span class="trust-users">12万+ 活跃玩家</span>
+        </div>
+        <div class="zone s-payment">
+          <span class="zone-label lbl-shared">共用</span>
+          <div class="pay-title">支付方式</div>
+          <div class="pay-logos">
+            <div class="pay-logo pl-oxxo">OXXO</div>
+            <div class="pay-logo pl-clabe">CLABE</div>
+            <div class="pay-logo pl-pc">PayCash</div>
+            <div class="pay-logo pl-bank">银行卡</div>
+          </div>
+          <div class="pay-promise">
+            <div class="check"></div>
+            无条件提款 · 3分钟到账
+          </div>
+        </div>
+        <div class="zone s-benefits">
+          <span class="zone-label lbl-fixed">固定</span>
+          <div class="benefit-item"><span class="benefit-num">1.</span><span class="benefit-text">注册即领 <span>$80</span> 彩金，无需充值</span></div>
+          <div class="benefit-item"><span class="benefit-num">2.</span><span class="benefit-text">首充翻倍 <span>+100%</span>，额外奖励</span></div>
+          <div class="benefit-item"><span class="benefit-num">3.</span><span class="benefit-text">每日登录奖励最高 <span>999,999</span></span></div>
+          <div class="benefit-item"><span class="benefit-num">4.</span><span class="benefit-text">提款 <span>无条件</span>，随存随取</span></div>
+          <div class="benefit-item"><span class="benefit-num">5.</span><span class="benefit-text">千款游戏，<span>100%</span> 返还率</span></div>
+          <div class="benefit-item"><span class="benefit-num">6.</span><span class="benefit-text">邀友奖励最高 <span>1,000,000</span></span></div>
+        </div>
+        <div class="zone s-games">
+          <span class="zone-label lbl-fixed">固定</span>
+          <div class="game-cat-title">老虎机</div>
+          <div class="game-row">
+            <div class="game-thumb"><div class="game-hot">热</div></div>
+            <div class="game-thumb"></div><div class="game-thumb"></div><div class="game-thumb"></div><div class="game-thumb"></div>
+          </div>
+          <div class="game-cat-title">真人娱乐场</div>
+          <div class="game-row">
+            <div class="game-thumb"><div class="game-hot">新</div></div>
+            <div class="game-thumb"></div><div class="game-thumb"></div><div class="game-thumb"></div><div class="game-thumb"></div>
+          </div>
+          <div class="game-cat-title">体育</div>
+          <div class="game-row">
+            <div class="game-thumb"></div><div class="game-thumb"></div><div class="game-thumb"></div><div class="game-thumb"></div><div class="game-thumb"></div>
+          </div>
+        </div>
+        <div class="zone s-cs">
+          <span class="zone-label lbl-shared">共用</span>
+          <div class="cs-text"><strong>需要帮助？</strong>24小时在线客服</div>
+          <div class="cs-wa">WhatsApp</div>
+        </div>
+        <div class="zone s-sticky">
+          <span class="zone-label lbl-shared">共用</span>
+          <span class="sticky-logo">9MAX</span>
+          <span class="sticky-claim">注册送 $80，立即开始</span>
+          <span class="sticky-cta">立即注册</span>
+        </div>
+      </div>
+      <div class="phone-bottom"><div class="phone-bar"></div></div>
+    </div>
+    <div class="ver-toggle">
+      <button class="ver-btn active" id="btn-reg" onclick="setVersion('reg')">注册钩子</button>
+      <button class="ver-btn" id="btn-dep" onclick="setVersion('dep')">首充钩子</button>
+      <button class="ver-btn" id="btn-plat" onclick="setVersion('plat')">平台噱头</button>
+    </div>
+    <div class="ver-toggle">
+      <button class="ver-btn active" id="btn-animal" onclick="setHero('animal')">游戏角色</button>
+      <button class="ver-btn" id="btn-person" onclick="setHero('person')">真人模特</button>
+    </div>
+  </div>
+
+  <div class="annotations">
+    <div class="ann-title">模块说明</div>
+    <div class="legend">
+      <div class="leg-item"><div class="leg-dot leg-ab"></div>A/B 测试区</div>
+      <div class="leg-item"><div class="leg-dot leg-sh"></div>共用模块</div>
+      <div class="leg-item"><div class="leg-dot leg-fx"></div>固定模块</div>
+    </div>
+    <div class="ann">
+      <div class="ann-num ann-num-fx">①</div>
+      <div class="ann-body">
+        <div class="ann-label">顶部导航栏 <span class="tag-pill tp-fx">固定</span></div>
+        <div class="ann-desc">Logo + 合作商 logo（PG/JILI/SBOBET等）建立平台背书，右侧客服入口首屏可见。</div>
+      </div>
+    </div>
+    <div class="ann">
+      <div class="ann-num ann-num-ab">②</div>
+      <div class="ann-body">
+        <div class="ann-label">Hero 视觉 <span class="tag-pill tp-ab">A/B 第二轮</span></div>
+        <div class="ann-desc">A — 牛/蛇/虎游戏角色（审核安全，IP强）<br>B — 真人模特+金币特效（CTR更高，审核风险较高）<br>左下方切换预览。</div>
+      </div>
+    </div>
+    <div class="ann">
+      <div class="ann-num ann-num-ab">③</div>
+      <div class="ann-body">
+        <div class="ann-label">核心钩子文案 <span class="tag-pill tp-ab">A/B 优先测</span></div>
+        <div class="ann-desc">三个版本只改文案，视觉锁定不动：<br>A「注册送 $80」/ B「首充翻倍」/ C「平台噱头」<br>跑 3–5 天，500+ 点击后看注册率定方向。</div>
+      </div>
+    </div>
+    <div class="ann">
+      <div class="ann-num ann-num-fx">④</div>
+      <div class="ann-body">
+        <div class="ann-label">主 CTA 按钮 <span class="tag-pill tp-fx">固定</span></div>
+        <div class="ann-desc">深底白字，强对比。右上角「限时」红标制造紧迫感，按钮下方显示已注册人数，社会认同背书。</div>
+      </div>
+    </div>
+    <div class="ann">
+      <div class="ann-num ann-num-sh">⑤</div>
+      <div class="ann-body">
+        <div class="ann-label">信任三件套 <span class="tag-pill tp-sh">共用</span></div>
+        <div class="ann-desc">评分 4.9★ + 持牌认证标志 + 活跃玩家数。放在 CTA 正下方，消除用户最后一道顾虑。</div>
+      </div>
+    </div>
+    <div class="ann">
+      <div class="ann-num ann-num-sh">⑥</div>
+      <div class="ann-body">
+        <div class="ann-label">支付方式 + 提款承诺 <span class="tag-pill tp-sh">共用</span></div>
+        <div class="ann-desc">OXXO / CLABE / PayCash / 银行卡 logo 并排。下方「无条件提款 · 3分钟到账」直接回答拉美用户最大疑虑。</div>
+      </div>
+    </div>
+    <div class="ann">
+      <div class="ann-num ann-num-fx">⑦</div>
+      <div class="ann-body">
+        <div class="ann-label">数字化福利清单 <span class="tag-pill tp-fx">固定</span></div>
+        <div class="ann-desc">6条，每条含具体数字（$80 / 100% / 999,999）。数字锚定价值感，比模糊描述说服力高 3 倍。</div>
+      </div>
+    </div>
+    <div class="ann">
+      <div class="ann-num ann-num-fx">⑧</div>
+      <div class="ann-body">
+        <div class="ann-label">游戏分类展示 <span class="tag-pill tp-fx">固定</span></div>
+        <div class="ann-desc">老虎机 / 真人娱乐场 / 体育三类，每类 5 张缩略图，带「热」「新」标签。让用户秒找到感兴趣的品类。</div>
+      </div>
+    </div>
+    <div class="ann">
+      <div class="ann-num ann-num-sh">⑨</div>
+      <div class="ann-body">
+        <div class="ann-label">客服入口 <span class="tag-pill tp-sh">共用</span></div>
+        <div class="ann-desc">WhatsApp 按钮 + 「24小时在线」文案。拉美用户高度依赖 WhatsApp，有疑虑时的最后一道转化保障。</div>
+      </div>
+    </div>
+    <div class="ann">
+      <div class="ann-num ann-num-sh">⑩</div>
+      <div class="ann-body">
+        <div class="ann-label">底部悬浮 CTA 栏 <span class="tag-pill tp-sh">共用</span></div>
+        <div class="ann-desc">品牌 + 一句利益点 + 注册按钮，全程固定底部。用户滑到任意位置都有转化出口，是转化兜底的关键。</div>
+      </div>
+    </div>
+    <div class="divider-line"></div>
+    <div style="font-size:11px;font-weight:500;color:#888;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">文案参考</div>
+    <div class="copy-block">
+      <div class="copy-block-title">版本 A — 注册钩子</div>
+      <div class="copy-option"><em>主标题：</em>注册即送 $80 彩金<div class="copy-sub">副文案：无需充值 · 立即领取 · 随时提款</div></div>
+      <div class="copy-option"><em>CTA：</em>立即领取 $80 →</div>
+    </div>
+    <div class="copy-block">
+      <div class="copy-block-title">版本 B — 首充钩子</div>
+      <div class="copy-option"><em>主标题：</em>首充翻倍，额外 +100%<div class="copy-sub">副文案：充100得200 · 秒到账 · 无提款条件</div></div>
+      <div class="copy-option"><em>CTA：</em>立即充值翻倍 →</div>
+    </div>
+    <div class="copy-block">
+      <div class="copy-block-title">版本 C — 平台噱头</div>
+      <div class="copy-option"><em>主标题：</em>千款游戏免费玩，100% 无条件提款<div class="copy-sub">副文案：每日登录奖励最高 999,999</div></div>
+      <div class="copy-option"><em>CTA：</em>免费开始游戏 →</div>
+    </div>
+  </div>
+</div>
+
+<script>
+function setVersion(v){
+  var ht=document.getElementById('hook-text');
+  var hs=document.getElementById('hook-sub-text');
+  var hz=document.getElementById('hook-zone');
+  ['btn-reg','btn-dep','btn-plat'].forEach(function(id){document.getElementById(id).classList.remove('active')});
+  if(v==='reg'){
+    ht.innerHTML='注册即送 <span style="color:#FFD700">$80</span> 彩金';
+    hs.textContent='无需充值 · 立即领取';
+    hz.className='zone s-hook hook-ab-a';
+    document.getElementById('btn-reg').classList.add('active');
+  }else if(v==='dep'){
+    ht.innerHTML='首充翻倍 <span style="color:#FFD700">+100%</span>';
+    hs.textContent='充100得200 · 无提款条件';
+    hz.className='zone s-hook hook-ab-b';
+    document.getElementById('btn-dep').classList.add('active');
+  }else{
+    ht.innerHTML='千款游戏 <span style="color:#FFD700">100%</span> 无条件提款';
+    hs.textContent='每日奖励最高 999,999';
+    hz.className='zone s-hook hook-ab-a';
+    document.getElementById('btn-plat').classList.add('active');
+  }
+}
+function setHero(v){
+  ['btn-animal','btn-person'].forEach(function(id){document.getElementById(id).classList.remove('active')});
+  if(v==='animal'){
+    document.getElementById('hero-a-vis').style.display='flex';
+    document.getElementById('hero-b-vis').style.display='none';
+    document.getElementById('btn-animal').classList.add('active');
+  }else{
+    document.getElementById('hero-a-vis').style.display='none';
+    document.getElementById('hero-b-vis').style.display='flex';
+    document.getElementById('btn-person').classList.add('active');
+  }
+}
+</script>
+</body>
+</html>
